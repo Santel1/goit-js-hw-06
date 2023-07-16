@@ -8,6 +8,7 @@ const inputValue = document.querySelector(`input[type="number"]`);
 const createBtn = document.querySelector("button[data-create]");
 const destroyBtn = document.querySelector("button[data-destroy]");
 const boxCont = document.querySelector("#boxes");
+const fragment = document.createDocumentFragment();
 
 console.log(inputValue, createBtn, destroyBtn);
 
@@ -28,9 +29,12 @@ function createBoxes(amount) {
     el.style.width = `${size}px`;
     el.style.height = `${size}px`;
     el.style.backgroundColor = getRandomHexColor();
-    boxCont.appendChild(el);
+
+    fragment.appendChild(el);
+
     size += 10;
   }
+  boxCont.appendChild(fragment);
 }
 
 function destroyBoxes() {
